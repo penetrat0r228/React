@@ -1,10 +1,13 @@
 import React, {FC} from 'react';
 import './App.css';
+import Products from "./components/products/Products";
+
 
 const App:FC = () => {
     return (
         <>
-        <h2>hi</h2>
+            <input type={"range"}/>
+            <Products/>
         </>
     );
 }
