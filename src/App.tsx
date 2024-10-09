@@ -4,7 +4,7 @@ import './App.css';
 const App:FC = () => {
     return (
         <>
-
+        <h2>hi</h2>
         </>
     );
 }
