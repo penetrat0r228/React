@@ -1,14 +1,26 @@
-import React, {FC} from 'react';
+import React, {useState} from "react";
 import './App.css';
-import Products from "./components/products/Products";
+import Users from "./components/users/Users";
+import {postService} from "./services/dummy.json.api.services";
+import {IPost} from "./models/IPost";
+import User from "./components/user/User";
+import Posts from "./components/posts/Posts";
 
+function App() {
 
-const App:FC = () => {
-    return (
-        <>
-            <input type={"range"}/>
-            <Products/>
-        </>
+    const [posts, setPosts] = useState<IPost[]>([]);
+    const lift = async (id: number) => {
+        setPosts(await postService.getPostsOfUser(id));
+        console.log(id);
+    };
+    return(
+        <div>
+            <Users lift={lift}/>
+            <hr/>
+            <Posts posts={posts}/>
+            <hr/>
+        </div>
     );
 }
+
 export default App;
